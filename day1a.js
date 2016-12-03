@@ -1,4 +1,4 @@
-const inputs = require('./inputs.js');
+const inputs = require('./day1inputs.js');
 
 const calculateDirection = (turn, direction) => {
   switch (direction) {
