@@ -6,11 +6,11 @@ const validTriangle = (triangle) => {
   return triangle.every(side => total - side > side);
 }
 
-const validTriangles = []
+const validTriangles = [];
 
 inputs.forEach(triangle => {
   if (validTriangle(triangle)) {
-    validTriangles.push(triangle)
+    validTriangles.push(triangle);
   }
 });
 
