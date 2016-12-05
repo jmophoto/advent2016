@@ -1,6 +1,6 @@
 const inputs = require('./day4inputs.js');
 
-const names = [];
+const rooms = [];
 const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
 const decodeRoom = (input) => {
@@ -55,9 +55,12 @@ inputs.forEach(input => {
   const { sector, valid } = decodeRoom(input);
 
   if (valid) {
-    console.log(decodeName(sector, input));
-    names.push(decodeName(sector, input));
-  }
-})
+    const name = decodeName(sector, input);
 
-console.log(`The sector total is ${sectorTotal}.`);
+    if (name.match(/northpole/)) {
+      rooms.push({ name, sector });
+    }
+  }
+});
+
+console.log(`The room where the objects are stored is named "${rooms[0].name}" and is located in sector ${rooms[0].sector}.`);
