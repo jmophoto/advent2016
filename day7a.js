@@ -13,9 +13,12 @@ const checkABBA = (string) => {
 };
 
 inputs.forEach(input => {
-  const valid = input.match(/\[(\w+)\]/g).every(sequence => !checkABBA(sequence));
+  const hypernet = input.match(/\[(\w+)\]/g);
+  const supernet = input.replace(/\[(\w+)\]/g, ' ').split(' ').filter(letters => letters.length);
 
-  if (valid && checkABBA(input)) {
+  const valid = hypernet.every(sequence => !checkABBA(sequence)) && supernet.some(sequence => checkABBA(sequence));
+
+  if (valid) {
     tlsIPs.push(input)
   }
 });
