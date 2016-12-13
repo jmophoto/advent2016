@@ -1,5 +1,7 @@
 const inputs = require('./day9inputs.js');
 
+const test = 'X(8x2)(3x3)ABCY';
+
 const letters = inputs.split('');
 const decoded = [];
 let letter = '';
@@ -41,4 +43,4 @@ do {
 } while (letters.length);
 
 
-console.log(decoded.join('').length);
+console.log(`The decoded length is ${decoded.join('').length}.`);
